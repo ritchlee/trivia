@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'trivia/question', to: 'trivia#question'
       post 'trivia/question', to: 'trivia#question'
+      get 'trivia/validate', to: 'trivia#validate'
       post 'trivia/validate', to: 'trivia#validate'
     end
   end
