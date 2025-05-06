@@ -1,0 +1,29 @@
+AllCops:
+  NewCops: disable
+  Exclude:
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "db/queue_schema.rb"
+    - "**/node_modules/**/*"
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  SafeAutoCorrect: true
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "db/schema.rb"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/**/*"
+
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/**/*"
+
+# TODO: enable this if needed
+Style/Documentation:
+  Enabled: false
