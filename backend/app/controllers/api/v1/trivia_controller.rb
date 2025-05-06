@@ -12,6 +12,17 @@ module Api
           difficulty: difficulty
         )
 
+        # Ensure the response has the expected structure for the mobile app
+        # The mobile app expects a question and an array of answers
+        if !result.key?(:answers) || !result[:answers].is_a?(Array)
+          # If answers is missing or not an array, create a default structure
+          result = {
+            question: result[:question] || "Question not available",
+            answers: result[:answers].is_a?(Array) ? result[:answers] : [],
+            correct_answer: result[:correct_answer] || ""
+          }
+        end
+
         render json: result
       end
 
