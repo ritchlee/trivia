@@ -19,8 +19,8 @@ module Api
 
         # Ensure the response has the expected structure for the mobile app
         # The mobile app expects a question and an array of answers
-        if !result.key?(:answers) || !result[:answers].is_a?(Array) || 
-           !result.key?(:question) || !result.key?(:correct_answer)
+        if !result.key?("answers") || !result["answers"].is_a?(Array) || 
+           !result.key?("question") || !result.key?("correct_answer")
           return render json: { error: "Invalid question format received" }, status: :unprocessable_entity
         end
 
