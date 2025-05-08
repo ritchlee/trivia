@@ -35,6 +35,7 @@ class ChatGptTriviaService
 
     begin
       Rails.logger.info("Sending request to OpenAI API for #{genre} question with #{difficulty} difficulty")
+      Rails.logger.info("Using API URL: #{@client.url_prefix}/v1/chat/completions")
       
       response = @client.post('/v1/chat/completions') do |req|
         req.body = {
