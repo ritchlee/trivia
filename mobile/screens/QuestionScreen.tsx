@@ -19,7 +19,28 @@ export default function QuestionScreen({ route, navigation }) {
         setLoading(false);
       } catch (err) {
         console.error('Error fetching question:', err);
-        setError('Failed to load question. Please try again.');
+        
+        // Extract error message from API response if available
+        let errorMessage = 'Failed to load question. Please try again.';
+        if (err.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log('Error data:', err.response.data);
+          console.log('Error status:', err.response.status);
+          
+          if (err.response.status === 503) {
+            errorMessage = `Service Unavailable: ${err.response.data.error || 'The trivia service is currently unavailable'}`;
+          } else if (err.response.status === 422) {
+            errorMessage = `Invalid Question Format: ${err.response.data.error || 'The question format is invalid'}`;
+          } else if (err.response.data && err.response.data.error) {
+            errorMessage = err.response.data.error;
+          }
+        } else if (err.request) {
+          // The request was made but no response was received
+          errorMessage = 'No response from server. Please check your connection.';
+        }
+        
+        setError(errorMessage);
         setLoading(false);
       }
     };
@@ -59,6 +80,9 @@ export default function QuestionScreen({ route, navigation }) {
     return (
       <View style={styles.centered}>
         <Text style={styles.errorText}>{error}</Text>
+        <Text style={styles.errorSubtext}>
+          This could be due to an API error or missing OpenAI API key.
+        </Text>
         <Button title="Try Again" onPress={() => navigation.goBack()} />
       </View>
     );
@@ -113,6 +137,13 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  errorSubtext: {
+    color: '#666',
+    fontSize: 14,
     textAlign: 'center',
     marginBottom: 20,
   }
