@@ -17,6 +17,12 @@ class ChatGptTriviaService
 
   # rubocop:disable Metrics/MethodLength
   def generate_question(genre:, difficulty:)
+    # Check if API key is present
+    if @api_key.nil? || @api_key.empty?
+      Rails.logger.error("OpenAI API key is missing")
+      return { error: "OpenAI API key is missing. Please set the OPENAI_API_KEY environment variable." }
+    end
+
     prompt = <<~PROMPT
       Generate a #{difficulty} multiple-choice music trivia question about #{genre}.
       Include 1 correct answer and 3 plausible incorrect answers in JSON format:
@@ -27,19 +33,46 @@ class ChatGptTriviaService
       }
     PROMPT
 
-    response = @client.post('/chat/completions') do |req|
-      req.body = {
-        model: 'gpt-4',
-        messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7
-      }.to_json
+    begin
+      Rails.logger.info("Sending request to OpenAI API for #{genre} question with #{difficulty} difficulty")
+      
+      response = @client.post('/chat/completions') do |req|
+        req.body = {
+          model: 'gpt-4',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.7
+        }.to_json
+      end
+      
+      Rails.logger.info("OpenAI API response status: #{response.status}")
+      
+      if response.status != 200
+        Rails.logger.error("OpenAI API error: #{response.body}")
+        return { error: "OpenAI API returned error: #{response.status} - #{response.body}" }
+      end
+      
+      json = JSON.parse(response.body)
+      
+      if !json['choices'] || json['choices'].empty? || !json['choices'][0]['message']
+        Rails.logger.error("Unexpected OpenAI response format: #{json}")
+        return { error: "Unexpected response format from OpenAI" }
+      end
+      
+      content = json['choices'][0]['message']['content']
+      parsed_content = JSON.parse(content)
+      
+      Rails.logger.info("Successfully generated question about #{genre}")
+      parsed_content
+    rescue Faraday::Error => e
+      Rails.logger.error("Network error connecting to OpenAI: #{e.message}")
+      { error: "Network error: #{e.message}" }
+    rescue JSON::ParserError => e
+      Rails.logger.error("JSON parsing error: #{e.message}, Content: #{content.inspect}")
+      { error: "Failed to parse OpenAI response: #{e.message}" }
+    rescue StandardError => e
+      Rails.logger.error("Unexpected error in ChatGptTriviaService: #{e.class} - #{e.message}")
+      { error: "Unexpected error: #{e.message}" }
     end
-
-    json = JSON.parse(response.body)
-    content = json['choices'][0]['message']['content']
-    JSON.parse(content)
-  rescue StandardError => e
-    { error: e.message }
   end
   # rubocop:enable Metrics/MethodLength
 end
