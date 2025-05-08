@@ -7,7 +7,7 @@ class ChatGptTriviaService
   def initialize
     @api_key = ENV['OPENAI_API_KEY']
     @client = Faraday.new(
-      url: 'https://api.openai.com/v1',
+      url: 'https://api.openai.com',
       headers: {
         'Authorization' => "Bearer #{@api_key}",
         'Content-Type' => 'application/json'
@@ -36,7 +36,7 @@ class ChatGptTriviaService
     begin
       Rails.logger.info("Sending request to OpenAI API for #{genre} question with #{difficulty} difficulty")
       
-      response = @client.post('/chat/completions') do |req|
+      response = @client.post('/v1/chat/completions') do |req|
         req.body = {
           model: 'gpt-4',
           messages: [{ role: 'user', content: prompt }],
