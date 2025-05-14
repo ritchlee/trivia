@@ -19,6 +19,10 @@ export default function QuestionScreen({ route, navigation }) {
         setLoading(false);
       } catch (err) {
         console.error('Error fetching question:', err);
+        console.log('Error type:', typeof err);
+        console.log('Error name:', err.name);
+        console.log('Error message:', err.message);
+        console.log('Error code:', err.code);
         
         // Extract error message from API response if available
         let errorMessage = 'Failed to load question. Please try again.';
@@ -37,7 +41,10 @@ export default function QuestionScreen({ route, navigation }) {
           }
         } else if (err.request) {
           // The request was made but no response was received
-          errorMessage = 'No response from server. Please check your connection.';
+          console.log('Error request:', err.request);
+          errorMessage = `Network error: ${err.message}. Please check your connection and server status.`;
+        } else if (err.message && err.message.includes('Network Error')) {
+          errorMessage = 'Network Error: Cannot connect to the server. Please ensure the backend is running and accessible.';
         }
         
         setError(errorMessage);
