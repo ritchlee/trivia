@@ -9,19 +9,24 @@ const baseURL = Platform.OS === 'android'
 
 console.log(`API configured with baseURL: ${baseURL} for platform: ${Platform.OS}`);
 
+// Create custom axios instance with platform-specific settings
 const api = axios.create({
   baseURL,
-  // Add timeout to prevent hanging requests
-  timeout: 10000,
-  // Add headers for better debugging
+  timeout: 15000, // Increased timeout for slower Android emulator
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-  },
-  // Disable SSL certificate validation for development
-  // This is needed for Android emulator connecting to localhost
-  validateStatus: status => status >= 200 && status < 300
+  }
 });
+
+// Special handling for Android
+if (Platform.OS === 'android') {
+  console.log('Configuring Android-specific network settings');
+  // Android needs these settings for localhost connections in emulator
+  api.defaults.timeout = 30000; // Even longer timeout for Android
+  api.defaults.maxRedirects = 5;
+  api.defaults.maxContentLength = 50 * 1024 * 1024; // 50MB
+}
 
 // Add request interceptor for logging
 api.interceptors.request.use(
