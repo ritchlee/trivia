@@ -17,7 +17,10 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-  }
+  },
+  // Disable SSL certificate validation for development
+  // This is needed for Android emulator connecting to localhost
+  validateStatus: status => status >= 200 && status < 300
 });
 
 // Add request interceptor for logging
