@@ -15,17 +15,18 @@ The best music trivia app for mobile!
   - Android Studio / Android Emulator
 
 ## Server
-
-- `cd backend`
-- `bundle install`
-- `bin/rails s`
+- In a new terminal
+  - `cd backend`
+  - `bundle install`
+  - `bin/rails s`
 
 ## Mobile
-
-- `cd mobile`
-- `yarn start`
+- In a new terminal
+  - `cd mobile`
+  - `yarn start`
 - In a new terminal:
   - `yarn ios` (for iOS)
+- In a new terminal:
   - `yarn android` (for Android)
 
 ## Sample Screenshots
