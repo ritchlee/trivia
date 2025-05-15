@@ -39,3 +39,14 @@ Android:
 ![Screenshot_1747267287 Medium](https://github.com/user-attachments/assets/3c00ba65-81a3-4e99-aab3-5b291ebb850e)
 
 ![Screenshot_1747267292 Medium](https://github.com/user-attachments/assets/d14f0b0e-359f-4364-a26a-5bb78b886d86)
+
+iOS:
+
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 45](https://github.com/user-attachments/assets/7c1faac6-f635-4014-af22-212a48ca731b)
+
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 51](https://github.com/user-attachments/assets/45774476-ff29-4ad1-b4f1-feb45a5edaa6)
+
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 08](https://github.com/user-attachments/assets/da477d2a-a44e-4c72-8dd0-c65a0d2d7303)
+
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 12](https://github.com/user-attachments/assets/863f95d7-b85e-4e7e-a1de-73c49f595e7a)
+
