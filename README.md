@@ -7,9 +7,9 @@ The best music trivia app for mobile!
 ## Prerequisites
 
 - Postgres 17.0
-- Ruby 3.3.34 / Rails 8.0.2
-- Node 22.4.1
-- React Native / Mobile Emulators [https://reactnative.dev/docs/set-up-your-environment](Local Emulator Setup)
+- Ruby 3.3.34 (bundler will install Rails 8.0.2)
+- Node 22.4.1 (yarn will istall React Native)
+- Mobile Emulators [Local Emulator Setup](https://reactnative.dev/docs/set-up-your-environment)
   - XCode / IOS Emulator
   - Android Studio / Android Emulator
 
