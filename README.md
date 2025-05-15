@@ -32,10 +32,10 @@ The best music trivia app for mobile!
 
 Android:
 
-![Screenshot_1747267275](https://github.com/user-attachments/assets/84846a74-bea3-40eb-a06a-46aa0a33ac19)
+![Screenshot_1747267275 Medium](https://github.com/user-attachments/assets/50489eff-e29f-40d4-bba3-6e030828e9c3)
 
-![Screenshot_1747267279](https://github.com/user-attachments/assets/db97a02d-a4da-43c8-a84e-b4acfa1fc9ed)
+![Screenshot_1747267279 Medium](https://github.com/user-attachments/assets/67ada444-8225-446e-a609-ab9a2a297c75)
 
-![Screenshot_1747267287](https://github.com/user-attachments/assets/ea67eb98-b6f4-4e51-9a9f-f47b501298d6)
+![Screenshot_1747267287 Medium](https://github.com/user-attachments/assets/3c00ba65-81a3-4e99-aab3-5b291ebb850e)
 
-![Screenshot_1747267292](https://github.com/user-attachments/assets/00740cc4-8100-4fb4-b492-8024b5f7810d)
+![Screenshot_1747267292 Medium](https://github.com/user-attachments/assets/d14f0b0e-359f-4364-a26a-5bb78b886d86)
