@@ -42,11 +42,10 @@ Android:
 
 iOS:
 
-![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 45](https://github.com/user-attachments/assets/7c1faac6-f635-4014-af22-212a48ca731b)
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 45 Medium](https://github.com/user-attachments/assets/14018441-39ba-4175-96bf-d938f29b8c52)
 
-![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 51](https://github.com/user-attachments/assets/45774476-ff29-4ad1-b4f1-feb45a5edaa6)
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 28 51 Medium](https://github.com/user-attachments/assets/3fb27415-b349-4ef6-89f4-41a1d4268617)
 
-![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 08](https://github.com/user-attachments/assets/da477d2a-a44e-4c72-8dd0-c65a0d2d7303)
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 08 Medium](https://github.com/user-attachments/assets/25a51275-d1c9-4ca7-8d87-91d8b0a3dfb3)
 
-![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 12](https://github.com/user-attachments/assets/863f95d7-b85e-4e7e-a1de-73c49f595e7a)
-
+![Simulator Screenshot - iPhone 16 Pro - 2025-05-14 at 20 29 12 Medium](https://github.com/user-attachments/assets/931f19bd-e852-45b1-93fe-79d1346987cd)
