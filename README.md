@@ -15,12 +15,15 @@ The best music trivia app for mobile!
   - Android Studio / Android Emulator
 
 ## Server
+
 - In a new terminal
+  - `cp .env.sample .env` and add your OPENAI API key
   - `cd backend`
   - `bundle install`
   - `bin/rails s`
 
 ## Mobile
+
 - In a new terminal
   - `cd mobile`
   - `yarn start`
