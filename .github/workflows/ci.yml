@@ -26,6 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+        working-directory: mobile
       - name: Run tests
         run: yarn test
         working-directory: mobile
