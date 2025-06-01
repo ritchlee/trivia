@@ -26,6 +26,5 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-#      - name: Run tests
-#        run: npm test 
-#        working-directory: .
+      - name: Run tests
+        run: yarn test
