@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: .
+        working-directory: mobile/package.json
 #      - name: Run tests
 #        run: npm test 
 #        working-directory: .
